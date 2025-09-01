@@ -1,28 +1,30 @@
 Cypress.Commands.add('fill_form', (data) => {
+    cy.log(data.provincia)
+
     // Nombre
-    cy.get('[data-cy="input-nombres"]').type('Pepe')
+    cy.get('[data-cy="input-nombres"]').type(data.nombre)
     // Apellido
-    cy.get('[data-cy="input-apellido"]').type('Papo')
+    cy.get('[data-cy="input-apellido"]').type(data.apellido)
     // Numero telefono
-    cy.get('[data-cy="input-telefono"]').type('3516765454')
+    cy.get('[data-cy="input-telefono"]').type(data.telefono)
     // DNI
-    cy.get('[data-cy="input-dni"]').type('24353625') // cambiar en cada test
+    cy.get('[data-cy="input-dni"]').type(data.dni) // cambiar en cada test
     // Provincia
     cy.get('[data-cy="select-provincia"]').click()
-    cy.contains('Jujuy').click() 
+    cy.contains(data.provincia).click() 
     // Localidad
     cy.get('[data-cy="select-localidad"]').click()
-    cy.contains('Abralaite').click()       
+    cy.contains(data.localidad).click()       
     // Fecha nacimiento
-    cy.contains('dd').type('02')
-    cy.contains('mm').type('02')
-    cy.contains('aaaa').type('2002')
+    cy.contains('dd').type(data.fecha.dia)
+    cy.contains('mm').type(data.fecha.mes)
+    cy.contains('aaaa').type(data.fecha.anio)
     // Mail
-    cy.get('[data-cy="input-email"]').type('pepe@papo.com')
+    cy.get('[data-cy="input-email"]').type(data.email)
     // Confirmacion Mail
-    cy.get('[data-cy="input-confirmar-email"]').type('pepe@papo.com')
+    cy.get('[data-cy="input-confirmar-email"]').type(data.email)
     // Contraseña
-    cy.get('[data-cy="input-password"]').type('Pepe-1234')
+    cy.get('[data-cy="input-password"]').type(data.contrasenia)
     // Confirmacion Contraseña
-    cy.get('[data-cy="input-repetir-password"]').type('Pepe-1234')
+    cy.get('[data-cy="input-repetir-password"]').type(data.contrasenia)
 })
