@@ -1,0 +1,15 @@
+{
+    "nombre": "Pepe", 
+    "apellido": "Papo",       
+    "telefono": "3514567890",
+    "dni": "24353625",
+    "provincia": "Jujuy",
+    "localidad": "Abralaite",
+    "fecha": {
+        "dia": "02",
+        "mes": "02",
+        "anio": "2002"
+    },
+    "email": "pepe@papo.com",
+    "contrasenia": "Pepe-1234"
+}
