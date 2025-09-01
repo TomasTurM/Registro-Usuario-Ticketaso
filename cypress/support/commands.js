@@ -1,25 +1,28 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('fill_form', (data) => {
+    // Nombre
+    cy.get('[data-cy="input-nombres"]').type('Pepe')
+    // Apellido
+    cy.get('[data-cy="input-apellido"]').type('Papo')
+    // Numero telefono
+    cy.get('[data-cy="input-telefono"]').type('3516765454')
+    // DNI
+    cy.get('[data-cy="input-dni"]').type('24353625') // cambiar en cada test
+    // Provincia
+    cy.get('[data-cy="select-provincia"]').click()
+    cy.contains('Jujuy').click() 
+    // Localidad
+    cy.get('[data-cy="select-localidad"]').click()
+    cy.contains('Abralaite').click()       
+    // Fecha nacimiento
+    cy.contains('dd').type('02')
+    cy.contains('mm').type('02')
+    cy.contains('aaaa').type('2002')
+    // Mail
+    cy.get('[data-cy="input-email"]').type('pepe@papo.com')
+    // Confirmacion Mail
+    cy.get('[data-cy="input-confirmar-email"]').type('pepe@papo.com')
+    // Contraseña
+    cy.get('[data-cy="input-password"]').type('Pepe-1234')
+    // Confirmacion Contraseña
+    cy.get('[data-cy="input-repetir-password"]').type('Pepe-1234')
+})
