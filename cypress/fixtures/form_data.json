@@ -2,7 +2,7 @@
     "nombre": "Pepe", 
     "apellido": "Papo",       
     "telefono": "3514567890",
-    "dni": "24353625",
+    "dni": "12123123",
     "provincia": "Jujuy",
     "localidad": "Abralaite",
     "fecha": {
@@ -11,5 +11,7 @@
         "anio": "2002"
     },
     "email": "pepe@papo.com",
-    "contrasenia": "Pepe-1234"
+    "confirmar_email": "pepe@papo.com",
+    "contrasenia": "Pepe-1234",
+    "confirmar_contrasenia": "Pepe-1234"
 }

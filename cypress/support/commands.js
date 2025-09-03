@@ -1,5 +1,14 @@
+function generarDNI() {
+  // genera un DNI valido
+  const min = 1000000;
+  const max = 99999999;
+  const dni = Math.floor(Math.random() * (max - min + 1)) + min;
+  return dni.toString();
+}
+
 Cypress.Commands.add('fill_form', (data) => {
-    cy.log(data.provincia)
+    // generamos dni random
+    data.dni = generarDNI()
 
     // Nombre
     cy.get('[data-cy="input-nombres"]').type(data.nombre)
@@ -8,7 +17,7 @@ Cypress.Commands.add('fill_form', (data) => {
     // Numero telefono
     cy.get('[data-cy="input-telefono"]').type(data.telefono)
     // DNI
-    cy.get('[data-cy="input-dni"]').type(data.dni) // cambiar en cada test
+    cy.get('[data-cy="input-dni"]').type(data.dni)
     // Provincia
     cy.get('[data-cy="select-provincia"]').click()
     cy.contains(data.provincia).click() 
@@ -22,9 +31,9 @@ Cypress.Commands.add('fill_form', (data) => {
     // Mail
     cy.get('[data-cy="input-email"]').type(data.email)
     // Confirmacion Mail
-    cy.get('[data-cy="input-confirmar-email"]').type(data.email)
+    cy.get('[data-cy="input-confirmar-email"]').type(data.confirmar_email)
     // Contraseña
     cy.get('[data-cy="input-password"]').type(data.contrasenia)
     // Confirmacion Contraseña
-    cy.get('[data-cy="input-repetir-password"]').type(data.contrasenia)
+    cy.get('[data-cy="input-repetir-password"]').type(data.confirmar_contrasenia)
 })
