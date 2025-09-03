@@ -12,7 +12,7 @@ describe('Test Cases Pagina Registro', {testIsolation: false},  () => {
     cy.get('[data-slot="error-message"').should('be.visible')
   })
 
-  it('Usuario mayor a 18 años', () => {
+  it('Usuario menor a 18 años', () => {
     cy.fixture('form_data').then((data) => {
       // Cambiar año de nacimiento a una fecha no valida (menor de 18 años)
       data.fecha.anio = '2010'
